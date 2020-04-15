@@ -4,12 +4,13 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 server = Flask(__name__)
-app = dash.Dash(__name__,
-               server=server,
-               url_base_pathname='/dash')
+app = Dash(__name__, server=server,url_base_pathname='/dash/')
 
 app.layout = html.Div(id='dash-container')
 
-@server.route("/dash")
+@server.route("/dash/")
 def MyDashApp():
     return app.index()
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
